@@ -1,0 +1,561 @@
+
+body {
+    background-color: #FFF2E8;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.login-card {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 25px;
+    padding: 2rem;
+    background-color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.title {
+    color: #FF8C94;
+}
+
+/* Tabs */
+.nav-tabs .nav-link.active {
+    background-color: #fff;
+    border-radius: 25px 25px 0 0;
+    color: #FF8C94 !important;
+    font-weight: bold;
+}
+
+.nav-tabs .nav-link {
+    color: #FF8C94;
+}
+
+/* Inputs */
+input::placeholder {
+    color: #FFB3A7;
+}
+
+input:focus {
+    box-shadow: none;
+    border-color: #FF8C94;
+}
+
+/* Buttons */
+.btn-pink {
+    background-color: #FF8C94;
+    color: #fff;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.btn-pink:hover {
+    background-color: #FF6675;
+    color: #fff;
+}
+
+/* Cat Floating Animation */
+.cat-chef {
+    width: 120px;
+    display: block;
+    margin: 0 auto 1rem auto;
+    animation: floatDrink 2s infinite ease-in-out;
+}
+
+@keyframes floatDrink {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* CARDS */
+.cards { display: flex; flex-wrap: wrap; gap: 20px; }
+.card.summary-card {
+    flex: 1 1 250px;
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(255, 140, 148, 0.2);
+    transition: transform 0.3s;
+}
+.card.summary-card:hover { transform: translateY(-5px); }
+.card.summary-card h2 { color: #FF8C94; margin-top: 10px; }
+.card.summary-card h6 { color: #FF6675; font-weight: bold; }
+
+/* CHART */
+.chart-container { background-color: #fff; border-radius: 25px; padding: 25px; box-shadow: 0 8px 20px rgba(255, 140, 148, 0.2); }
+
+/* POPULAR DRINKS */
+.popular-drink { background-color: #fff; border-radius: 25px; box-shadow: 0 8px 20px rgba(255, 140, 148, 0.2); padding: 20px; text-align: center; margin-bottom: 20px; transition: transform 0.3s; }
+.popular-drink:hover { transform: translateY(-5px); }
+.popular-drink img { height: 100px; margin-bottom: 10px; border-radius: 15px; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) { .cards { flex-direction: column; } }
+
+
+body {
+    background-color: #FFF2E8;
+    font-family: 'Segoe UI', sans-serif;
+    padding-bottom: 50px;
+}
+
+
+.navbar {
+    background-color: #FF8C94; 
+    padding: 0.8rem 1rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    align-items: center;
+}
+
+
+.navbar-brand {
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+
+.navbar .btn {
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 0.3rem 0.9rem;
+    transition: 0.3s;
+}
+
+
+.navbar .btn-light {
+    background-color: #fff;
+    color: #FF8C94;
+}
+
+.navbar .btn-light:hover {
+    background-color: #FFB3A7;
+    color: #fff;
+}
+
+
+.navbar .btn + .btn {
+    margin-left: 0.5rem;
+}
+
+
+@media (max-width: 768px) {
+    .navbar .ms-auto {
+        margin-top: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+/* Cards */
+.stat-card {
+    border-radius: 20px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+/* Chart Box */
+.chart-box {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Welcome Text */
+#welcomeUser {
+    color: #FF8C94;
+    margin: 20px 0;
+}
+
+/* Category Buttons */
+.category-btn {
+    margin: 5px;
+    border-radius: 20px;
+}
+.category-btn.active {
+    background-color: #FF8C94;
+    color: white;
+}
+
+
+/* ---------- Add to Cart Button ---------- */
+.btn-pink {
+    background-color: #FF8C94;
+    color: #fff;
+    border-radius: 20px;
+    padding: 5px 12px;
+    font-size: 0.85rem;
+    transition: background 0.3s;
+}
+.btn-pink:hover {
+    background-color: #FF6675;
+}
+
+/* ---------- Cart Section ---------- */
+.cart-section {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(255, 140, 148, 0.2);
+    font-size: 0.9rem;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #FFE5E5;
+    padding: 8px 0;
+}
+.cart-item:last-child {
+    border-bottom: none;
+}
+.cart-item button {
+    background-color: #FF8C94;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+.cart-item button:hover {
+    background-color: #FF6675;
+}
+.cart-item input {
+    width: 40px;
+    text-align: center;
+    border-radius: 8px;
+    border: 1px solid #FFB3A7;
+    padding: 2px 0;
+    margin-left: 8px;
+    font-size: 0.85rem;
+}
+
+/* ---------- Cart Total ---------- */
+#cartTotal {
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+#checkoutBtn {
+    border-radius: 20px;
+    padding: 8px;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    width: 100%;
+    background-color: #FF8C94;
+    color: #fff;
+    border: none;
+    transition: background 0.3s;
+}
+#checkoutBtn:hover {
+    background-color: #FF6675;
+}
+
+
+/* ---------- Body ---------- */
+body {
+    background-color: #FFF2E8;
+    font-family: 'Segoe UI', sans-serif;
+    padding-bottom: 50px;
+}
+
+/* ---------- Navbar ---------- */
+.navbar {
+    background-color: #FF8C94;
+}
+.navbar-brand {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+/* ---------- Category Buttons ---------- */
+.category-btn {
+    border-radius: 25px;
+    margin-right: 8px;
+    margin-bottom: 10px;
+    color: #FF8C94;
+    border: 2px solid #FF8C94;
+    transition: 0.3s;
+}
+.category-btn:hover {
+    background-color: #FF8C94;
+    color: #fff;
+}
+.category-btn.active {
+    background-color: #FF8C94;
+    color: #fff;
+}
+
+/* ---------- Product Cards ---------- */
+.product-card {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(255, 140, 148, 0.2);
+    transition: transform 0.3s;
+    margin-bottom: 20px;
+}
+.product-card:hover {
+    transform: translateY(-5px);
+}
+.product-card img {
+    width: 100%;          
+    height: 250px;        
+    object-fit: cover;   
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+.product-card h5 {
+    color: #FF8C94;
+    margin-bottom: 5px;
+}
+.product-card p {
+    color: #FF6675;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.btn-pink {
+    background-color: #FF8C94;
+    color: #fff;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+.btn-pink:hover {
+    background-color: #FF6675;
+    color: #fff;
+}
+
+/* ---------- Sticky Cart ---------- */
+#cartContainer {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 15px;
+    box-shadow: 0 8px 20px rgba(255, 140, 148, 0.2);
+    position: sticky;
+    top: 20px;
+}
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    border-bottom: 1px solid #FFE5E5;
+}
+.cart-item input {
+    width: 50px;
+    border-radius: 8px;
+    border: 1px solid #FFB3A7;
+    text-align: center;
+}
+.cart-item button {
+    border-radius: 8px;
+}
+
+/* ---------- Cart Total & Checkout ---------- */
+#cartTotal {
+    font-weight: bold;
+    margin-top: 10px;
+}
+#checkoutBtn {
+    border-radius: 25px;
+    padding: 10px;
+    margin-top: 15px;
+}
+
+
+@media (max-width: 992px) {
+    #cartContainer {
+        position: static;
+        margin-top: 20px;
+    }
+}
+
+.modal-content {
+    border-radius: 20px;
+}
+
+
+.payment-options button {
+    border-radius: 20px;
+    padding: 10px 0;
+    font-weight: bold;
+    transition: 0.3s;
+    margin-bottom: 5px;
+}
+.payment-options button:hover {
+    opacity: 0.85;
+}
+
+
+#cashInfo {
+    background-color: #fff0f2;
+    border-radius: 15px;
+    padding: 15px;
+    color: #FF6675;
+    box-shadow: 0 4px 10px rgba(255, 140, 148, 0.2);
+    margin-top: 10px;
+}
+
+#qrInfo {
+    background-color: #f0fff4;
+    border-radius: 15px;
+    padding: 15px;
+    color: #4CAF50;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.2);
+    margin-top: 10px;
+}
+
+#qrInfo img {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+#qrTimer {
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+
+#confirmPayment {
+    border-radius: 20px;
+    background-color: #FF8C94;
+    color: #fff;
+    transition: 0.3s;
+}
+
+#confirmPayment:hover {
+    background-color: #FF6675;
+}
+
+/* ----- FEEDBACK FORM CARD ----- */
+.feedback-container {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+.feedback-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form input styling */
+#feedbackForm input,
+#feedbackForm select,
+#feedbackForm textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
+
+#feedbackForm input:focus,
+#feedbackForm select:focus,
+#feedbackForm textarea:focus {
+    border-color: #ff8c94;
+    box-shadow: 0 0 5px rgba(255,140,148,0.4);
+    outline: none;
+}
+
+#feedbackForm button {
+    background-color: #ff8c94;
+    border: none;
+    padding: 10px;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+#feedbackForm button:hover {
+    background-color: #ff5f6d;
+}
+
+
+.review-list {
+    max-width: 900px;
+    margin: 50px auto;
+
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 25px; 
+}
+
+/* ----- EACH REVIEW BOX ----- */
+.review-box {
+    background: #ffffff;
+    padding: 20px 22px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+}
+
+/* ----- REVIEW TEXT ----- */
+.review-name {
+    font-weight: bold;
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.review-rating {
+    color: #ffb400;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.review-comment {
+    color: #555;
+    font-size: 19px;
+    line-height: 1.4;
+}
+
+
+/* ----- HEADINGS ----- */
+h2, h3 {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+    .review-list {
+        grid-template-columns: 1fr; 
+    }
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1; 
+}
+
+.site-footer {
+    background: #f8f9fa;
+    text-align: center;
+    padding: 12px 0;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    color: #555;
+}
+
+
+

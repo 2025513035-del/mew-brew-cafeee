@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mew & Brew Feedback</title>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css/style.css">
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+   <nav class="navbar px-4">
+    <span class="navbar-brand">Mew & Brew Dashboard</span>
+    <div class="ms-auto d-flex align-items-center">
+        <a href="dashboard.html" class="btn btn-light btn-sm me-2">Dashboard</a>
+        <a href="products.html" class="btn btn-light btn-sm me-2">Product</a>
+        <a href="feedback.html" class="btn btn-light btn-sm me-2">Feedback</a>
+        <a href="index.html" class="btn btn-light btn-sm me-2">Log out</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+
+    <div class="feedback-container">
+        <h2>Leave Your Feedback</h2>
+
+        <form id="feedbackForm">
+            <label>Name</label>
+            <input type="text" id="fbName" required>
+
+            <label>Email</label>
+            <input type="email" id="fbEmail" required>
+
+            <label>Rating (1–5 Stars)</label>
+            <select id="fbRating" required>
+                <option value="">Choose rating</option>
+                <option value="1">1 ★</option>
+                <option value="2">2 ★★</option>
+                <option value="3">3 ★★★</option>
+                <option value="4">4 ★★★★</option>
+                <option value="5">5 ★★★★★</option>
+            </select>
+
+            <label>Comment</label>
+            <textarea id="fbComment" rows="3" required></textarea>
+
+            <button type="submit" class="btn btn-primary w-100">Submit Feedback</button>
+        </form>
+    </div>
+
+    <hr class="mt-4">
+
+   <h2>Customer Reviews</h2>
+<div id="reviewList" class="review-list">
+
+    <div class="p-3 border rounded mb-2">
+        <h5>Zaireeq — 5 ★★★★★</h5>
+        <p>The drinks are so good! I love the matcha mango so much.</p>
+        <small>zreeq@gmail.com</small>
+    </div>
+
+    <div class="p-3 border rounded mb-2">
+        <h5>Aliffah — 4 ★★★★</h5>
+        <p>Nice café, cute design. chocolate milk a bit sweet for me.</p>
+        <small>alffh@gmail.com</small>
+    </div>
+
+      <div class="p-3 border rounded mb-2">
+        <h5>Amalin — 5 ★★★★★</h5>
+        <p>The drinks were delicious and the vibes were very cozy. I love the cat-themed concept!</p>
+        <small>amalin@gmail.com</small>
+    </div>
+
+    <div class="p-3 border rounded mb-2">
+        <h5>Zulaika — 4 ★★★★</h5>
+        <p>Great service, but the menu could include more drinks options.</p>
+        <small>zula@gmail.com</small>
+    </div>
+
+     <div class="p-3 border rounded mb-2">
+        <h5>Amna — 3 ★★★</h5>
+        <p>Service is polite but a bit slow when the café is busy.</p>
+        <small>amna@gmail.com</small>
+    </div>
+
+     <div class="p-3 border rounded mb-2">
+        <h5>Hazreeq — 5 ★★★★★</h5>
+        <p>Best coffee I’ve had in a long time!</p>
+        <small>hzreeq@gmail.com</small>
+    </div>
+
+      <div class="p-3 border rounded mb-2">
+        <h5>Ikramiena — 5 ★★★★★</h5>
+        <p>The matcha latte here is amazing! Will definitely come back.</p>
+        <small>ikramienaa@gmail.com</small>
+    </div>
+
+     <div class="p-3 border rounded mb-2">
+        <h5>Badariah — 5 ★★★★★</h5>
+        <p>The cappuccino is my favorite. Every cup tastes perfect!</p>
+        <small>bdriah@gmail.com</small>
+    </div>
+
+
+</div>
+
+    <footer class="site-footer">
+    © 2025 Mew&Brew | All Rights Reserved
+</footer>
+
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

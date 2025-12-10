@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mew & Brew Products</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<nav class="navbar px-4">
+    <span class="navbar-brand">Mew & Brew Dashboard</span>
+    <div class="ms-auto d-flex align-items-center">
+        <a href="dashboard.html" class="btn btn-light btn-sm me-2">Dashboard</a>
+        <a href="products.html" class="btn btn-light btn-sm me-2">Product</a>
+        <a href="feedback.html" class="btn btn-light btn-sm me-2">Feedback</a>
+        <a href="index.html" class="btn btn-light btn-sm me-2">Log out</a>
+    </div>
+</nav>
+
+<div class="main-content">
+
+    <div class="container mt-4">
+       
+        <div class="mb-3">
+            <button class="category-btn btn active" data-category="coffee">Coffee</button>
+            <button class="category-btn btn" data-category="tea">Tea</button>
+            <button class="category-btn btn" data-category="chocolate">Chocolate</button>
+            <button class="category-btn btn" data-category="matcha">Matcha</button>
+            <button class="category-btn btn" data-category="juice">Juice</button>
+            <button class="category-btn btn" data-category="smoothies">Smoothies</button>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="row g-3" id="productGrid"></div>
+            </div>
+            <div class="col-lg-4">
+                <div id="cartContainer">
+                    <h4>Cart</h4>
+                    <div id="cartItems"></div>
+                    <p id="cartTotal" class="fw-bold mt-2"></p>
+                    <button id="checkoutBtn" class="btn btn-pink w-100 mt-3">Checkout</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-3">
+            <div class="modal-header">
+                <h5 class="modal-title">Payment</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body text-center">
+                <p id="modalTotal" class="fw-bold mb-3"></p>
+
+                <div class="payment-options mb-3">
+                    <button id="payCash" class="btn btn-pink w-100 mb-2">Pay Cash</button>
+                    <button id="payQR" class="btn btn-success w-100">Pay with QR</button>
+                </div>
+
+                <div id="cashInfo" class="d-none">
+                    <p>Pay cash at the counter.</p>
+                    <p>Your waiting number is: <span id="waitingNumber"></span></p>
+                </div>
+
+                <div id="qrInfo" class="d-none">
+                    <p>Scan the QR code to pay.</p>
+                    <img src="images/qr.jpeg" alt="QR Code">
+                    <p id="qrTimer">Closing in 50s...</p>
+                    <p class="mt-2">Show your payment proof at the counter.</p>
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button class="btn btn-pink" id="confirmPayment">Confirm Payment</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    © 2025 Mew&Brew | All Rights Reserved
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
+
