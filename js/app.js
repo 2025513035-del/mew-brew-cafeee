@@ -57,75 +57,112 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // ---------- DASHBOARD JS ----------
+    const username = localStorage.getItem("currentUser") || "Guest";
+    document.getElementById("welcomeUser").innerText = `Welcome, ${username} 🐾`;
 
-const username = localStorage.getItem("currentUser") || "Guest";
-document.getElementById("welcomeUser").innerText = `Welcome, ${username} 🐾`;
+    // data for drinks 
+    const totalCustomers = 805;
 
-// data for drinks
-const drinks = ["Milk Tea", "Chocolate Milk", "Matcha Mango", "Espresso", "Green Tea"];
-const weeklySales = [210, 320, 99, 64, 100];
-const totalOrders = weeklySales.reduce((a,b)=>a+b,0);
-const totalSales = totalOrders * 5; 
-const totalCustomers =805;
+    // Update cards summary
+    const salesData = JSON.parse(localStorage.getItem("drinkSales")) || {};
+    const totalOrders = Object.values(salesData).reduce((a,b)=>a+b,0);
+    const totalSales = totalOrders * 5; 
 
-// Update cards
-document.getElementById("salesCount").innerText = `RM ${totalSales.toFixed(2)}`;
-document.getElementById("ordersCount").innerText = totalOrders;
-document.getElementById("customerCount").innerText = totalCustomers;
+    document.getElementById("salesCount").innerText = `RM ${totalSales.toFixed(2)}`;
+    document.getElementById("ordersCount").innerText = totalOrders;
+    document.getElementById("customerCount").innerText = totalCustomers;
 
-// ---------- Most Popular Drinks Chart ----------
-const drinkCtx = document.getElementById('drinkChart').getContext('2d');
-new Chart(drinkCtx, {
-    type: 'bar',
-    data: {
-        labels: drinks,
-        datasets: [{
-            label: 'Number of Orders',
-            data: weeklySales,
-            backgroundColor: '#FF8C94'
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { display: false },
-            title: { display: true, text: 'Most Popular Drinks This Week', font: { size:16 } }
-        },
-        scales: { y: { beginAtZero: true } }
-    }
-});
+// ---------- Most Popular Drinks Chart  ----------
+let drinkChart;
+function updateDrinkChart() {
+    const salesData = JSON.parse(localStorage.getItem("drinkSales")) || {};
+    const drinks = Object.keys(salesData);
+    const orders = Object.values(salesData);
 
-// ---------- Customer Satisfaction Chart ----------
-const ratingCtx = document.getElementById('ratingChart').getContext('2d');
-const ratingsCount = [0, 10,11, 52, 95]; // index 0 = 1 star, index 4 = 5 stars
+    // ---------- Update Cards ----------
+    const totalOrders = orders.reduce((a, b) => a + b, 0);
+    const totalSales = totalOrders * 5; 
+    document.getElementById("ordersCount").innerText = totalOrders;
+    document.getElementById("salesCount").innerText = `RM ${totalSales.toFixed(2)}`;
 
-new Chart(ratingCtx, {
-    type: 'bar',
-    data: {
-        labels: ['1 ★', '2 ★', '3 ★', '4 ★', '5 ★'],
-        datasets: [{
-            label: 'Number of Customers',
-            data: ratingsCount,
-            backgroundColor: ['#BF1A1A','#E8D1C5','#BF124D','#F875AA','#5A0E24'],
-        }]
-    },
-    options: {
-        responsive: true,
-        plugins: {
-            legend: { display: false },
-            title: { display: true, text: 'Customer Satisfaction Rating', font: { size: 16 } }
-        },
-        scales: {
-            y: {
-                beginAtZero: true,
-                ticks: { stepSize: 1 }
+    // Count customers from feedback
+    const userReviews = JSON.parse(localStorage.getItem("userReviews")) || [];
+    const uniqueCustomers = [...new Set(userReviews.map(r => r.email))].length;
+    document.getElementById("customerCount").innerText = uniqueCustomers;
+
+    // ---------- Update Chart ----------
+    if(drinkChart) {
+        drinkChart.data.labels = drinks;
+        drinkChart.data.datasets[0].data = orders;
+        drinkChart.update();
+    } else {
+        const drinkCtx = document.getElementById('drinkChart').getContext('2d');
+        drinkChart = new Chart(drinkCtx, {
+            type: 'bar',
+            data: {
+                labels: drinks,
+                datasets: [{
+                    label: 'Number of Orders',
+                    data: orders,
+                    backgroundColor: '#FF8C94'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'Most Popular Drinks', font: { size:16 } }
+                },
+                scales: { y: { beginAtZero: true } }
             }
+        });
+    }
+}
+updateDrinkChart();
+
+
+    // ---------- Customer Satisfaction Chart ----------
+    let ratingChart;
+    function updateRatingChart() {
+        const userReviews = JSON.parse(localStorage.getItem("userReviews")) || [];
+        const ratingsCount = [0,0,1,2,5];
+
+        userReviews.forEach(r => {
+            const rating = parseInt(r.rating);
+            if(rating >=1 && rating <=5) ratingsCount[rating-1]++;
+        });
+
+        if(ratingChart) {
+            ratingChart.data.datasets[0].data = ratingsCount;
+            ratingChart.update();
+        } else {
+            const ratingCtx = document.getElementById('ratingChart').getContext('2d');
+            ratingChart = new Chart(ratingCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['1 ★', '2 ★', '3 ★', '4 ★', '5 ★'],
+                    datasets: [{
+                        label: 'Number of Customers',
+                        data: ratingsCount,
+                        backgroundColor: ['#BF1A1A','#E8D1C5','#BF124D','#F875AA','#5A0E24'],
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'Customer Satisfaction Rating', font: { size: 16 } }
+                    },
+                    scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+                }
+            });
         }
     }
-});
+    updateRatingChart();
 
 });
 
+// ---------- PRODUCTS & CART ----------
 document.addEventListener("DOMContentLoaded", function() {
 
     // ---------- PRODUCTS ----------
@@ -238,8 +275,21 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // ---------- CHECKOUT ----------
-    checkoutBtn.addEventListener("click", ()=>{
+    checkoutBtn.addEventListener("click", ()=> {
         if(cart.length===0){ alert("Your cart is empty!"); return; }
+
+        // Update sales data in localStorage
+        let salesData = JSON.parse(localStorage.getItem("drinkSales")) || {};
+        cart.forEach(item => {
+            if(salesData[item.name]) salesData[item.name] += item.qty;
+            else salesData[item.name] = item.qty;
+        });
+        localStorage.setItem("drinkSales", JSON.stringify(salesData));
+
+        // Update chart
+        if(typeof updateDrinkChart === "function") updateDrinkChart();
+
+        // Show modal
         let total = cart.reduce((sum,item)=>sum+item.price*item.qty,0);
         modalTotal.innerText = `Total Amount: RM ${total}`;
         paymentModal.show();
@@ -271,27 +321,25 @@ document.addEventListener("DOMContentLoaded", function() {
         waitingNumber.innerText = Math.floor(Math.random()*100+1);
     });
 
-payQRBtn.addEventListener("click", () => {
-    cashInfo.classList.add("d-none");
-    qrInfo.classList.remove("d-none");
+    payQRBtn.addEventListener("click", () => {
+        cashInfo.classList.add("d-none");
+        qrInfo.classList.remove("d-none");
 
-    // Reset QR timer
-    let timeLeft = 50;
-    qrTimer.innerText = `Closing in ${timeLeft}s`;
-    clearInterval(qrCountdown);
-
-    qrCountdown = setInterval(() => {
-        timeLeft--;
+        let timeLeft = 50;
         qrTimer.innerText = `Closing in ${timeLeft}s`;
-        if(timeLeft <= 0){
-            clearInterval(qrCountdown);
-            paymentModal.hide();
-        }
-    }, 1000);
+        clearInterval(qrCountdown);
 
-    // Clear QR waiting number initially
-    document.getElementById("qrWaitingNumber").innerText = "";
-});
+        qrCountdown = setInterval(() => {
+            timeLeft--;
+            qrTimer.innerText = `Closing in ${timeLeft}s`;
+            if(timeLeft <= 0){
+                clearInterval(qrCountdown);
+                paymentModal.hide();
+            }
+        }, 1000);
+
+        document.getElementById("qrWaitingNumber").innerText = "";
+    });
 
 });
 
@@ -341,6 +389,9 @@ feedbackForm.addEventListener("submit", function(e) {
     `;
 
     feedbackForm.reset();
+
+    // Update rating chart dynamically
+    if(typeof updateRatingChart === "function") updateRatingChart();
 });
 
 // ------------------- RENDER REVIEWS -------------------
