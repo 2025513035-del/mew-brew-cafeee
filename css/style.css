@@ -13,46 +13,7 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.title {
-    color: #FF8C94;
-}
-
-/* Tabs */
-.nav-tabs .nav-link.active {
-    background-color: #fff;
-    border-radius: 25px 25px 0 0;
-    color: #FF8C94 !important;
-    font-weight: bold;
-}
-
-.nav-tabs .nav-link {
-    color: #FF8C94;
-}
-
-/* Inputs */
-input::placeholder {
-    color: #FFB3A7;
-}
-
-input:focus {
-    box-shadow: none;
-    border-color: #FF8C94;
-}
-
-/* Buttons */
-.btn-pink {
-    background-color: #FF8C94;
-    color: #fff;
-    border-radius: 25px;
-    transition: 0.3s;
-}
-
-.btn-pink:hover {
-    background-color: #FF6675;
-    color: #fff;
-}
-
-/* Cat Floating Animation */
+/* Cat Floating Animation frontpage */
 .cat-chef {
     width: 120px;
     display: block;
@@ -65,39 +26,9 @@ input:focus {
     50% { transform: translateY(-10px); }
 }
 
-/* CARDS */
-.cards { display: flex; flex-wrap: wrap; gap: 20px; }
-.card.summary-card {
-    flex: 1 1 250px;
-    background-color: #fff;
-    border-radius: 25px;
-    padding: 25px;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(255, 140, 148, 0.2);
-    transition: transform 0.3s;
-}
-.card.summary-card:hover { transform: translateY(-5px); }
-.card.summary-card h2 { color: #FF8C94; margin-top: 10px; }
-.card.summary-card h6 { color: #FF6675; font-weight: bold; }
+/* CSS for Dashboard */
 
-/* CHART */
-.chart-container { background-color: #fff; border-radius: 25px; padding: 25px; box-shadow: 0 8px 20px rgba(255, 140, 148, 0.2); }
-
-/* POPULAR DRINKS */
-.popular-drink { background-color: #fff; border-radius: 25px; box-shadow: 0 8px 20px rgba(255, 140, 148, 0.2); padding: 20px; text-align: center; margin-bottom: 20px; transition: transform 0.3s; }
-.popular-drink:hover { transform: translateY(-5px); }
-.popular-drink img { height: 100px; margin-bottom: 10px; border-radius: 15px; }
-
-/* RESPONSIVE */
-@media (max-width: 768px) { .cards { flex-direction: column; } }
-
-
-body {
-    background-color: #FFF2E8;
-    font-family: 'Segoe UI', sans-serif;
-    padding-bottom: 50px;
-}
-
+/* Navigation */
 
 .navbar {
     background-color: #FF8C94; 
@@ -149,7 +80,8 @@ body {
     }
 }
 
-/* Cards */
+/* Cards Summary */
+
 .stat-card {
     border-radius: 20px;
     padding: 20px;
@@ -166,22 +98,7 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* Welcome Text */
-#welcomeUser {
-    color: #FF8C94;
-    margin: 20px 0;
-}
-
-/* Category Buttons */
-.category-btn {
-    margin: 5px;
-    border-radius: 20px;
-}
-.category-btn.active {
-    background-color: #FF8C94;
-    color: white;
-}
-
+/* CSS for Products */
 
 /* ---------- Add to Cart Button ---------- */
 .btn-pink {
@@ -259,6 +176,7 @@ body {
     background-color: #FF6675;
 }
 
+/* CSS for Navigation Products */
 
 /* ---------- Body ---------- */
 body {
@@ -334,7 +252,7 @@ body {
     color: #fff;
 }
 
-/* ---------- Sticky Cart ---------- */
+/* ---------- Add to Cart box ---------- */
 #cartContainer {
     background-color: #fff;
     border-radius: 20px;
@@ -524,29 +442,7 @@ body {
 }
 
 
-/* ----- HEADINGS ----- */
-h2, h3 {
-    text-align: center;
-    margin-top: 30px;
-    margin-bottom: 15px;
-}
-
-@media (max-width: 600px) {
-    .review-list {
-        grid-template-columns: 1fr; 
-    }
-}
-
-html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.main-content {
-    flex: 1; 
-}
+/* ----- Footer ----- */
 
 .site-footer {
     background: #f8f9fa;
@@ -556,6 +452,7 @@ html, body {
     font-size: 14px;
     color: #555;
 }
+
 
 
 
