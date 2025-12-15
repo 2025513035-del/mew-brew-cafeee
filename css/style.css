@@ -83,11 +83,12 @@ body {
 /* Cards Summary */
 
 .stat-card {
-    border-radius: 20px;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 25px;              
+    padding: 25px 20px;              
+    background: linear-gradient(135deg, #fff, #ffe5e5); 
+    box-shadow: 0 10px 25px rgba(255, 140, 148, 0.2);  
     text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s; 
 }
 
 /* Chart Box */
@@ -452,6 +453,7 @@ body {
     font-size: 14px;
     color: #555;
 }
+
 
 
 
