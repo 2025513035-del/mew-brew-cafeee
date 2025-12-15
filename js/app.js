@@ -70,7 +70,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById("salesCount").innerText = `RM ${totalSales.toFixed(2)}`;
     document.getElementById("ordersCount").innerText = totalOrders;
-    document.getElementById("customerCount").innerText = totalCustomers;
 
 // ---------- Most Popular Drinks Chart  ----------
 let drinkChart;
@@ -88,7 +87,6 @@ function updateDrinkChart() {
     // Count customers from feedback
     const userReviews = JSON.parse(localStorage.getItem("userReviews")) || [];
     const uniqueCustomers = [...new Set(userReviews.map(r => r.email))].length;
-    document.getElementById("customerCount").innerText = uniqueCustomers;
 
     // ---------- Update Chart ----------
     if(drinkChart) {
